@@ -1,12 +1,82 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-  background-image: url('http://www.vanessametonini.com.br/imersaocss/a1/img/fundo.jpg');
-  background-size: auto 100vh; 
-  font-family: Arial;
+  background-size: auto 100vh;
+  font-family: 'Source Code Pro', monospace;
   height: 100vh;
+  font-size: 12px;
+}
+
+
+/* Breakpoints */
+@media (min-width: 400px) {
+  body {
+    font-size: 14px;
+  }
+}
+
+@media (min-width: 600px) {
+  body {
+    font-size: 18px;
+  }
+}
+
+@media (min-width: 1200px) {
+  body {
+    font-size: 20px;
+  }
+}
+
+header {
+  background: linear-gradient(rgba(33, 117, 155, 0.5),rgba(33, 117, 155, 0.5)),url('../img/background_6.jpg');
+  background-size: cover;
+  background-position: 50%;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+
+header .site-subtitle {
+  animation: typing 4s steps(25) 1s normal;
+  opacity: 1;
+}
+
+header .site-subtitle {
+  white-space: nowrap;
+  margin: 0 auto;
+  font-weight: 300;
+  animation: typing 4s steps(25) 1s normal;
+  overflow: hidden;
+  opacity: 1;
+}
+
+header .site-subtitle:after {
+  content: '|';
+  margin-left: 4px;
+  animation: blink 0.7s infinite;
+}
+
+@keyframes typing {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 18em;
+  }
 }
 
 .menu {
   background-color: white;
+  position: fixed;
+  width: 100vw;
+  top: 0;
+  z-index: 1;
 }
 
 .menu ul {
@@ -15,11 +85,23 @@ body {
 }
 
 .menu li {
- list-style: none; 
+  list-style: none;
+}
+
+.menu a {
+  display: block;
+  padding: 10px 20px;
+  transition: background-color 1s, color 1s;
+}
+
+.menu a:active,
+.menu a:hover {
+  background-color: rgba(0, 106, 228, 0.705);
+  color: white;
 }
 
 a {
-  color: teal;
+  color: rgba(0, 106, 228, 0.705);
   text-decoration: none;
 }
 
@@ -27,12 +109,254 @@ a:hover {
   text-decoration: underline;
 }
 
-.site-subtitle, 
+.titulo {
+  transform: scale(0.2) translate(50vh);
+  opacity: 0;
+  animation: 1s ease 500ms animacaoTitulo forwards;
+}
+
+@keyframes animacaoTitulo {
+  from {
+    transform: scale(0.2) translate(50vh);
+    opacity: 0;
+  }
+  to {
+    transform: scale(1) translate(0);
+    opacity: 1;
+  }
+}
+
+.site-subtitle,
 .site-title {
   color: whitesmoke;
   text-align: center;
 }
 
+.site-title {
+  font-size: 4em;
+  font-family: 'Source Code Pro', monospace;
+}
+
 .site-subtitle {
- font-style: italic;
+  font-style: italic;
+  font-family: 'Source Code Pro', monospace;
+  line-height: 1.8em;
+}
+
+.sobre {
+  background: linear-gradient(rgba(255, 255, 255, 0.5),rgba(255, 255, 255, 0.5)),url('../img/background_7.jpg');
+  background-size: cover;
+  background-position: 50%;
+}
+
+.portifolio {
+  background: linear-gradient(rgba(255, 255, 255, 0.7),rgba(255, 255, 255, 0.7)),url('../img/background_8.jpg');
+  background-size: cover;
+  background-position: 50%;
+}
+
+.contato {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  background-color: rgb(33, 117, 155);
+}
+
+.sobre,
+.contato,
+.portifolio {
+  padding: 2em;
+  min-height: 100vh;
+}
+
+/* @media (min-width: 1200px) {
+  .container {
+    background-color: white;
+    margin-left: auto;
+    margin-right: auto;
+  }
+} */
+
+.sobre h2,
+.contato h2,
+.portifolio h2 {
+  font-family: 'Source Code Pro', monospace;
+  color: #565d64;
+  margin-bottom: 1em;
+  text-indent: 1.4em;
+  text-align: right;
+  margin-bottom: 2em;
+  font-size: 2em;
+}
+
+.sobre p {
+  color: #565d64;
+  margin-bottom: 1.4em;
+  text-indent: 1.4em;
+  text-align: right;
+
+  font-weight: 300;
+  font-size: 1.8em;
+}
+
+.sobre a {
+  background-color: white;
+  text-decoration: underline;
+}
+
+.sobre a:hover {
+  color: rgba(0, 106, 228, 0.705);
+  text-decoration: none;
+}
+
+.sobre .avatar {
+  margin-left: 2em;
+  clip-path: circle(50% at 50% 50%);
+}
+
+
+@media (min-width: 600px) {
+  .sobre .avatar {
+    float: right;
+  }
+}
+
+/* Breakpoints */
+@media (min-width: 400px) {
+  .sobre {
+    font-size: 0.7em;
+  }
+}
+
+@media (min-width: 600px) {
+  .sobre {
+    font-size: 0.6em;
+  }
+}
+
+@media (min-width: 1200px) {
+  .sobre {
+    font-size: 0.8em;
+  }
+}
+
+.portifolio .grid {
+  display: grid;
+  gap: 2em;
+  align-items: center;
+}
+
+@media (min-width: 480px) {
+  .portifolio .grid {
+    grid-template-columns: 200px 200px;
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+  }
+}
+
+@media (min-width: 560px) {
+  .portifolio .grid {
+    grid-template-columns: 240px 240px;
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+  }
+}
+
+@media (min-width: 880px) {
+  .portifolio .grid {
+    grid-template-columns: repeat(3,260);
+    align-content: center;
+    justify-content: center;
+    height: calc(100vh - 8em - 48px);
+  }
+}
+
+.flip-card {
+  height: 180px;
+  perspective: 1000px;
+}
+
+.flip-card:hover .card {
+  transform: rotateY(180deg);
+}
+
+.card {
+  position: relative;
+  transform-style: preserve-3d;
+  transition: transform 3s;
+}
+
+.card-front, 
+.card-back {
+  backface-visibility: hidden;
+  left: 0;
+  position: absolute;
+  top: 0;
+  width: 100%;
+}
+
+.card-back {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: rgba(255, 255, 255, .7);
+  height: 180px;
+  width: 100%;
+  transform: rotateY(180deg);
+  color: #565d64;
+}
+
+.portifolio figure {
+  text-align: center;
+}
+
+.img-portfolio {
+  height: 180px;
+  width: 100%;
+  object-fit: cover;
+  object-position: left bottom;
+  transition: transform 500ms;
+}
+
+.img-portfolio:hover {
+  transform: scale(1.2) rotate(-2deg);
+}
+
+.contato .icons {
+  text-align: center;
+}
+
+.contato a {
+  color: white;
+  font-size: 6em;
+  transition: text-shadow 0.5s;
+}
+
+.contato h2 {
+  color: white;
+}
+
+.contato a:active,
+.contato a:hover {
+  text-decoration: none;
+  text-shadow: 0px 0px 15px rgba(255, 255, 255, 0.5);
+}
+
+
+footer {
+  display: block;
+}
+
+footer {
+  height: 40px;
+  margin-top: -40px;
+}
+
+footer p {
+  text-align: center;
+  font-size: 0.8em;
+  color: white;
 }
